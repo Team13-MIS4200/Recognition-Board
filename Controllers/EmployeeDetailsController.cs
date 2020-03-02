@@ -48,17 +48,25 @@ namespace Recognition_Board.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "employeeID,Email,firstName,lastName,PhoneNumber,OfficeLocation,Department,Position,Manager,hireDate,photo")] EmployeeDetails employeeDetails)
+        public ActionResult Create([Bind(Include = "employeeID,firstName,lastName,PhoneNumber,OfficeLocation,Department,Position,Manager,hireDate,photo")] EmployeeDetails employeeDetails)
         {
             if (ModelState.IsValid)
             {
                 //employeeDetails.employeeID = Guid.NewGuid();
                 Guid memberID; // create a variable to hold the guid
                 Guid.TryParse(User.Identity.GetUserId(), out memberID);
+                employeeDetails.Email = User.Identity.Name;
                 employeeDetails.employeeID = memberID;
                 db.Employees.Add(employeeDetails);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception)
+                {
+                    return View("DuplicateUser");
+                }
             }
 
             return View(employeeDetails);
@@ -76,7 +84,16 @@ namespace Recognition_Board.Controllers
             {
                 return HttpNotFound();
             }
-            return View(employeeDetails);
+            Guid memberID;
+            Guid.TryParse(User.Identity.GetUserId(), out memberID);
+            if (employeeDetails.employeeID == memberID)
+            {
+                return View(employeeDetails);
+            }
+            else
+            {
+                return View("NotAuthenticated");
+            }
         }
 
         // POST: EmployeeDetails/Edit/5

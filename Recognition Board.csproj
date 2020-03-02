@@ -250,6 +250,8 @@
     <Content Include="Views\Recognitions\Details.cshtml" />
     <Content Include="Views\Recognitions\Edit.cshtml" />
     <Content Include="Views\Recognitions\Index.cshtml" />
+    <Content Include="Views\EmployeeDetails\DuplicateUser.cshtml" />
+    <Content Include="Views\EmployeeDetails\NotAuthenticated.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

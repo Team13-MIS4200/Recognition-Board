@@ -12,7 +12,7 @@ namespace Recognition_Board.Models
         [Required]
         public Guid employeeID { get; set; }
 
-        [Required]
+       
         [EmailAddress]
         [Display(Name = "Email:")]
         public string Email { get; set; }
