@@ -12,19 +12,21 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a class="navbar-brand" onclick="location.href='@Url.Action("Index", "Home")'"> Recognition Board Home </a>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Please Select
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a onclick="location.href='@Url.Action("Index", "EmployeeDetails")'">List of Employees</a></li>
+                        <li><a onclick="location.href='@Url.Action("Index", "Recognitions")'"> List of Recognitions</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="navbar-right">
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
