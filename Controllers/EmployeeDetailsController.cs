@@ -86,6 +86,7 @@ namespace Recognition_Board.Controllers
             }
             Guid memberID;
             Guid.TryParse(User.Identity.GetUserId(), out memberID);
+            
             if (employeeDetails.employeeID == memberID)
             {
                 return View(employeeDetails);
@@ -105,6 +106,7 @@ namespace Recognition_Board.Controllers
         {
             if (ModelState.IsValid)
             {
+                employeeDetails.Email = User.Identity.Name;
                 db.Entry(employeeDetails).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

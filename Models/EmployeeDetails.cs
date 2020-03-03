@@ -14,7 +14,7 @@ namespace Recognition_Board.Models
 
        
         [EmailAddress]
-        [Display(Name = "Email:")]
+        [Display(Name = "Email")]
         public string Email { get; set; }
 
         [Required]
