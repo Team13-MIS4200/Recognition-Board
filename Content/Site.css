@@ -1,4 +1,4 @@
-﻿body {
+﻿﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -22,3 +22,21 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.jumbotron {
+    background-color: #F9B921;
+    color: #423d3d;
+}
+
+.navbar-inverse {
+    background-color: #2F1A5D;
+}
+
+    .navbar-inverse .navbar-brand {
+        color: #FFFFFF;
+    }
+
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #F9B921;
+    }
