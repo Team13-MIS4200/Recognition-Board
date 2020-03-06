@@ -19,7 +19,8 @@ namespace Recognition_Board.Models
 
         // Employee being recognized for their core values
         [Display(Name = "ID of Person receiving the recognition")]
-        public Guid recognized { get; set; }
+        public Guid employeeID { get; set; }
+        public Guid Recognized { get; set; }
         public virtual EmployeeDetails EmployeeRecognized { get; set; }
 
 
