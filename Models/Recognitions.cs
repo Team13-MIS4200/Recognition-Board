@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -11,16 +12,20 @@ namespace Recognition_Board.Models
         [Key]
         public int recognitionID { get; set; }
 
+        
         //This is to get the logged in employee as the one who is recognizing another coworker
         [Display(Name = "ID of Person giving the recognition")]
         public Guid recognizer { get; set; }
+        [ForeignKey("employeeID")]
         public virtual EmployeeDetails EmployeeRecognizing { get; set; }
 
 
         // Employee being recognized for their core values
+        
         [Display(Name = "ID of Person receiving the recognition")]
         public Guid employeeID { get; set; }
         public Guid Recognized { get; set; }
+        [ForeignKey("Recgonized")]
         public virtual EmployeeDetails EmployeeRecognized { get; set; }
 
 

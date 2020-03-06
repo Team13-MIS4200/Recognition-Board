@@ -74,14 +74,16 @@ namespace Recognition_Board.Controllers
             return View(recognitions);
         }
 
-        // GET: Recognitions/Edit/5
+            // GET: Recognitions/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            
             Recognitions recognitions = db.Recognitions.Find(id);
+            
             if (recognitions == null)
             {
                 return HttpNotFound();
@@ -94,7 +96,7 @@ namespace Recognition_Board.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "recognitionID,recognizer,recognized,award,Description,recognizationDate")] Recognitions recognitions)
+        public ActionResult Edit([Bind(Include = "recognitionID,recognizer,employeeID,Recognized,award,Description,recognizationDate")] Recognitions recognitions)
         {
             if (ModelState.IsValid)
             {
