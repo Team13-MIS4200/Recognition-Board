@@ -29,8 +29,23 @@ namespace Recognition_Board.Models
         [Phone]
         public string PhoneNumber { get; set; }
 
-        [Display(Name = "Office Location")]
-        public string OfficeLocation { get; set; }
+        public enum OfficeLocation
+        {
+            Boston,
+            Charolette,
+            Chicago,
+            Cincinnati,
+            Cleveland,
+            Columbus,
+            India,
+            Indianapolis,
+            Louisville,
+            Miami,
+            Seattle,
+            StLouis,
+            Tampa
+        }
+
 
         [Display(Name = "Department")]
         public string Department { get; set; }
