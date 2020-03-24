@@ -24,8 +24,8 @@ namespace Recognition_Board.Models
         
         [Display(Name = "ID of Person receiving the recognition")]
         public Guid employeeID { get; set; }
-        public Guid Recognized { get; set; }
-        [ForeignKey("Recgonized")]
+        public Guid recognized { get; set; }
+        [ForeignKey("Recognized")]
         public virtual EmployeeDetails EmployeeRecognized { get; set; }
 
 
@@ -43,11 +43,7 @@ namespace Recognition_Board.Models
             Lifestyle = 7
         }
 
-
-
-
-
-        public string Description { get; set; }
+        public string description { get; set; }
 
         [Display(Name = "Date recognition given")]
         public DateTime recognizationDate { get; set; }

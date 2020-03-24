@@ -12,10 +12,9 @@ namespace Recognition_Board.Models
         [Required]
         public Guid employeeID { get; set; }
 
-       
         [EmailAddress]
         [Display(Name = "Email")]
-        public string Email { get; set; }
+        public string email { get; set; }
 
         [Required]
         [Display(Name = "First Name")]
@@ -27,7 +26,7 @@ namespace Recognition_Board.Models
 
         [Display(Name = "Primary Phone")]
         [Phone]
-        public string PhoneNumber { get; set; }
+        public string phoneNumber { get; set; }
 
 
         // location dd
@@ -66,10 +65,10 @@ namespace Recognition_Board.Models
 
 
         [Display(Name = "Current position")]
-        public string Position { get; set; }
+        public string position { get; set; }
 
         [Display(Name = "Manager")]
-        public string Manager { get; set; }
+        public string manager { get; set; }
 
         [Display(Name = "Hire Date")]
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
