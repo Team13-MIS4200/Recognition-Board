@@ -29,6 +29,10 @@ namespace Recognition_Board.Models
         [Phone]
         public string PhoneNumber { get; set; }
 
+
+        // location dd
+        [Display(Name = "Office Location")]
+        public OfficeLocation officeLocation { get; set; }
         public enum OfficeLocation
         {
             Boston,
@@ -46,9 +50,20 @@ namespace Recognition_Board.Models
             Tampa
         }
 
-
+        // department dd
         [Display(Name = "Department")]
-        public string Department { get; set; }
+        public Department department{ get; set; }
+        public enum Department
+        {
+            Accounting,
+            BusinessConsulting,
+            DigitalConsulting,
+            Finance,
+            HumanResources,
+            TechnologyServices
+        }
+
+
 
         [Display(Name = "Current position")]
         public string Position { get; set; }
