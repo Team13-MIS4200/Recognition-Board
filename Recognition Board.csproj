@@ -170,7 +170,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\RecognitionsController.cs" />
     <Compile Include="DAL\AutomaticMigrationDataLossAllowed.cs" />
     <Compile Include="DAL\RecognitionBoardContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -241,18 +240,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\EmployeeDetails\Create.cshtml" />
-    <Content Include="Views\EmployeeDetails\Delete.cshtml" />
-    <Content Include="Views\EmployeeDetails\Details.cshtml" />
-    <Content Include="Views\EmployeeDetails\Edit.cshtml" />
-    <Content Include="Views\EmployeeDetails\Index.cshtml" />
-    <Content Include="Views\Recognitions\Create.cshtml" />
-    <Content Include="Views\Recognitions\Delete.cshtml" />
-    <Content Include="Views\Recognitions\Details.cshtml" />
-    <Content Include="Views\Recognitions\Edit.cshtml" />
-    <Content Include="Views\Recognitions\Index.cshtml" />
-    <Content Include="Views\EmployeeDetails\DuplicateUser.cshtml" />
-    <Content Include="Views\EmployeeDetails\NotAuthenticated.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

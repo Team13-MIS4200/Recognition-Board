@@ -16,16 +16,15 @@ namespace Recognition_Board.Models
         //This is to get the logged in employee as the one who is recognizing another coworker
         [Display(Name = "ID of Person giving the recognition")]
         public Guid recognizer { get; set; }
-        [ForeignKey("employeeID")]
+        [ForeignKey("recognizer")]
         public virtual EmployeeDetails EmployeeRecognizing { get; set; }
 
 
         // Employee being recognized for their core values
         
         [Display(Name = "ID of Person receiving the recognition")]
-        public Guid employeeID { get; set; }
         public Guid recognized { get; set; }
-        [ForeignKey("Recognized")]
+        [ForeignKey("recognized")]
         public virtual EmployeeDetails EmployeeRecognized { get; set; }
 
 
