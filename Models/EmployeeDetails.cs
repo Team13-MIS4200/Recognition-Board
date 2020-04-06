@@ -12,6 +12,13 @@ namespace Recognition_Board.Models
         [Required]
         public Guid employeeID { get; set; }
 
+        [Display(Name = "Employee Full Name")]
+        public string fullName
+        {
+            get { return lastName + ", " + firstName; }
+        }
+
+        // Personal Info
         [EmailAddress]
         [Display(Name = "Email")]
         public string email { get; set; }
@@ -35,7 +42,7 @@ namespace Recognition_Board.Models
         public enum OfficeLocation
         {
             Boston,
-            Charolette,
+            Charlotte,
             Chicago,
             Cincinnati,
             Cleveland,
@@ -63,7 +70,7 @@ namespace Recognition_Board.Models
         }
 
 
-
+        // Position Details
         [Display(Name = "Current position")]
         public string position { get; set; }
 
@@ -75,8 +82,7 @@ namespace Recognition_Board.Models
         public DateTime hireDate { get; set; }
 
 
-        public string photo { get; set; }
-
+        // Link to recognitions table
         public ICollection<Recognitions> Recognitions { get; set; }
     }
 }

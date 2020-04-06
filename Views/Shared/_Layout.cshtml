@@ -14,7 +14,7 @@
             <div class="navbar-header">
                 <a class="navbar-brand" onclick="location.href='@Url.Action("Index", "Home")'"> Recognition Board Home </a>
             </div>
-            <ul class="nav navbar-nav">
+            @*<ul class="nav navbar-nav">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         Please Select
@@ -25,7 +25,8 @@
                         <li><a onclick="location.href='@Url.Action("Index", "Recognitions")'"> List of Recognitions</a></li>
                     </ul>
                 </li>
-            </ul>
+
+            </ul>*@
             <div class="navbar-right">
                 @Html.Partial("_LoginPartial")
             </div>

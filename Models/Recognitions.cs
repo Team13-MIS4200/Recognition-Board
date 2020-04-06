@@ -12,24 +12,16 @@ namespace Recognition_Board.Models
         [Key]
         public int recognitionID { get; set; }
 
-        
-        //This is to get the logged in employee as the one who is recognizing another coworker
-        [Display(Name = "ID of Person giving the recognition")]
-        public Guid recognizer { get; set; }
-        [ForeignKey("recognizer")]
-        public virtual EmployeeDetails EmployeeRecognizing { get; set; }
-
 
         // Employee being recognized for their core values
-        
-        [Display(Name = "ID of Person receiving the recognition")]
-        public Guid recognized { get; set; }
-        [ForeignKey("recognized")]
+
+        [Display(Name = "Employee Recognized")]
+        public Guid employeeID { get; set; }
         public virtual EmployeeDetails EmployeeRecognized { get; set; }
 
 
         //Core Values ddl
-        [Display(Name = "Core value recognized")]
+        [Display(Name = "Core Value")]
         public CoreValue award { get; set; }
         public enum CoreValue
         {
@@ -42,9 +34,10 @@ namespace Recognition_Board.Models
             Lifestyle = 7
         }
 
+        [Display(Name = "Description")]
         public string description { get; set; }
 
-        [Display(Name = "Date recognition given")]
+        [Display(Name = "Recognition Data")]
         public DateTime recognizationDate { get; set; }
 
 
