@@ -12,11 +12,15 @@ namespace Recognition_Board.Models
         [Key]
         public int recognitionID { get; set; }
 
+        [Display(Name = "Employee Recognized")]
+        public Guid recognizer { get; set; }
+        public virtual EmployeeDetails EmployeeRecognizer { get; set; }
+
 
         // Employee being recognized for their core values
 
         [Display(Name = "Employee Recognized")]
-        public Guid employeeID { get; set; }
+        public Guid recognized { get; set; }
         public virtual EmployeeDetails EmployeeRecognized { get; set; }
 
 
