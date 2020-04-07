@@ -12,10 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.recognizer)
+            @Html.DisplayNameFor(model => model.From)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.recognized)
+            @Html.DisplayNameFor(model => model.employeeID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.award)
@@ -28,14 +28,14 @@
         </th>
         <th></th>
     </tr>
-
+    
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.recognizer)
+            @Html.DisplayFor(modelItem => item.From)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.recognized)
+            @Html.DisplayFor(modelItem => item.employeeID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.award)

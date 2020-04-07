@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using Recognition_Board.DAL;
 using Recognition_Board.Models;
 
@@ -39,6 +40,8 @@ namespace Recognition_Board.Controllers
         // GET: Recognitions/Create
         public ActionResult Create()
         {
+            ViewBag.ID = new SelectList(db.Employees, "employeeID", "fullName");
+            
             return View();
         }
 
@@ -47,10 +50,13 @@ namespace Recognition_Board.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "recognitionID,recognizer,recognized,award,description,recognizationDate")] Recognitions recognitions)
+        public ActionResult Create([Bind(Include = "recognitionID,employeeID,award,description,recognizationDate")] Recognitions recognitions)
         {
             if (ModelState.IsValid)
             {
+                Guid memberID; // create a variable to hold the guid
+                Guid.TryParse(User.Identity.GetUserId(), out memberID);
+                recognitions.From = memberID;
                 db.Recognitions.Add(recognitions);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,7 +85,7 @@ namespace Recognition_Board.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "recognitionID,recognizer,recognized,award,description,recognizationDate")] Recognitions recognitions)
+        public ActionResult Edit([Bind(Include = "recognitionID,employeeID,award,description,recognizationDate")] Recognitions recognitions)
         {
             if (ModelState.IsValid)
             {
