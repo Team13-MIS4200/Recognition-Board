@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
 using Recognition_Board.DAL;
 using Recognition_Board.Models;
 
@@ -19,7 +18,7 @@ namespace Recognition_Board.Controllers
         // GET: Recognitions
         public ActionResult Index()
         {
-            return View("Index");
+            return View(db.Recognitions.ToList());
         }
 
         // GET: Recognitions/Details/5
@@ -40,7 +39,6 @@ namespace Recognition_Board.Controllers
         // GET: Recognitions/Create
         public ActionResult Create()
         {
-            ViewBag.ID = new SelectList(db.Employees, "employeeID", "fullName");
             return View();
         }
 
@@ -53,9 +51,6 @@ namespace Recognition_Board.Controllers
         {
             if (ModelState.IsValid)
             {
-                Guid memberID; // create a variable to hold the guid
-                Guid.TryParse(User.Identity.GetUserId(), out memberID);
-                recognitions.recognizer = memberID;
                 db.Recognitions.Add(recognitions);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -76,18 +71,7 @@ namespace Recognition_Board.Controllers
             {
                 return HttpNotFound();
             }
-
-            Guid memberID;
-            Guid.TryParse(User.Identity.GetUserId(), out memberID);
-
-            if (recognitions.recognizer == memberID)
-            {
-                return View(recognitions);
-            }
-            else
-            {
-                return View("NotAuthenticated");
-            }
+            return View(recognitions);
         }
 
         // POST: Recognitions/Edit/5
@@ -99,9 +83,6 @@ namespace Recognition_Board.Controllers
         {
             if (ModelState.IsValid)
             {
-                Guid memberID; // create a variable to hold the guid
-                Guid.TryParse(User.Identity.GetUserId(), out memberID);
-                recognitions.recognizer = memberID;
                 db.Entry(recognitions).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
