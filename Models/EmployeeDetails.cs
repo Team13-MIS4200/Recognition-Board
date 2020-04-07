@@ -12,7 +12,7 @@ namespace Recognition_Board.Models
         [Required]
         public Guid employeeID { get; set; }
 
-        [Display(Name = "Employee Full Name")]
+        [Display(Name = "Full Name")]
         public string fullName
         {
             get { return lastName + ", " + firstName; }
@@ -20,7 +20,7 @@ namespace Recognition_Board.Models
 
         // Personal Info
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "Employee Email")]
         public string email { get; set; }
 
         [Required]

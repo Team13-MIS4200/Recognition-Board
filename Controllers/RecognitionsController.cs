@@ -12,6 +12,7 @@ using Recognition_Board.Models;
 
 namespace Recognition_Board.Controllers
 {
+    [Authorize]
     public class RecognitionsController : Controller
     {
         private RecognitionBoardContext db = new RecognitionBoardContext();
@@ -50,13 +51,14 @@ namespace Recognition_Board.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "recognitionID,employeeID,award,description,recognizationDate")] Recognitions recognitions)
+        public ActionResult Create([Bind(Include = "recognitionID,employeeID,award,description")] Recognitions recognitions)
         {
             if (ModelState.IsValid)
             {
                 Guid memberID; // create a variable to hold the guid
                 Guid.TryParse(User.Identity.GetUserId(), out memberID);
                 recognitions.From = memberID;
+                recognitions.recognizationDate = DateTime.Now;
                 db.Recognitions.Add(recognitions);
                 db.SaveChanges();
                 return RedirectToAction("Index");

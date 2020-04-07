@@ -4,22 +4,24 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Recognition_Board.Models
 {
+    
     public class Recognitions
     {
         [Key]
         public int recognitionID { get; set; }
 
-        [Display(Name = "From")]
+        [Display(Name = "Recognizer")]
         public Guid From { get; set; }
         public virtual EmployeeDetails EmployeeRecognizer { get; set; }
 
 
         // Employee being recognized for their core values
 
-        [Display(Name = "Employee Recognized")]
+        [Display(Name = "Recepient")]
         public Guid employeeID { get; set; }
         public virtual EmployeeDetails EmployeeRecognized { get; set; }
 
@@ -41,7 +43,7 @@ namespace Recognition_Board.Models
         [Display(Name = "Description")]
         public string description { get; set; }
 
-        [Display(Name = "Recognition Data")]
+        [Display(Name = "Date Given")]
         public DateTime recognizationDate { get; set; }
 
 
