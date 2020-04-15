@@ -15,10 +15,10 @@
             @Html.DisplayNameFor(model => model.From)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.employeeID)
+            @Html.DisplayNameFor(model => model.award)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.award)
+            @Html.DisplayNameFor(model => model.employeeID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.description)
@@ -30,28 +30,28 @@
     </tr>
     
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeRecognizer.fullName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeRecognized.fullName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.award)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.recognizationDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.recognitionID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.recognitionID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.recognitionID })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.EmployeeRecognizer.fullName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.award)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EmployeeRecognized.fullName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.recognizationDate)
+    </td>
+    <td>
+        @Html.ActionLink(" ", "Edit", new { id = item.recognitionID }, new { @class = "glyphicon glyphicon-pencil" }) |
+        @Html.ActionLink(" ", "Details", new { id = item.recognitionID }, new { @class = "glyphicon glyphicon-search" }) |
+        
+    </td>
+</tr>
 }
 
 </table>

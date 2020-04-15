@@ -58,6 +58,7 @@ namespace Recognition_Board.Controllers
                 employeeDetails.email = User.Identity.Name;
                 employeeDetails.employeeID = memberID;
                 db.Employees.Add(employeeDetails);
+                employeeDetails.hireDate = DateTime.Now;
                 try
                 {
                     db.SaveChanges();
@@ -93,7 +94,7 @@ namespace Recognition_Board.Controllers
             }
             else
             {
-                return View("NotAuthenticated");
+                return View("Error");
             }
         }
 

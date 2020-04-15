@@ -17,19 +17,13 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.recognitionID)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.recognizer, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.recognizer, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.recognizer, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        
 
         <div class="form-group">
-            @Html.LabelFor(model => model.recognized, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.employeeID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.recognized, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.recognized, "", new { @class = "text-danger" })
+                @Html.DropDownList("employeeID", ViewBag.ID as SelectList, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.employeeID, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -49,13 +43,7 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.recognizationDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.recognizationDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.recognizationDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
