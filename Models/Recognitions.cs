@@ -15,7 +15,9 @@ namespace Recognition_Board.Models
         public int recognitionID { get; set; }
 
         [Display(Name = "Recognizer")]
+
         public Guid From { get; set; }
+        [ForeignKey("From")]
         public virtual EmployeeDetails EmployeeRecognizer { get; set; }
 
 
@@ -23,6 +25,7 @@ namespace Recognition_Board.Models
 
         [Display(Name = "Recepient")]
         public Guid employeeID { get; set; }
+        [ForeignKey("employeeID")]
         public virtual EmployeeDetails EmployeeRecognized { get; set; }
 
 
