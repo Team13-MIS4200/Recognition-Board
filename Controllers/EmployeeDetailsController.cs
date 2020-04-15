@@ -103,7 +103,7 @@ namespace Recognition_Board.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "employeeID,email,firstName,lastName,phoneNumber,officeLocation,department,position,manager,hireDate")] EmployeeDetails employeeDetails)
+        public ActionResult Edit([Bind(Include = "employeeID,email,firstName,lastName,phoneNumber,officeLocation,department,position,manager")] EmployeeDetails employeeDetails)
         {
             if (ModelState.IsValid)
             {

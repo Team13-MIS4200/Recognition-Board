@@ -23,7 +23,7 @@ namespace Recognition_Board.Models
 
         // Employee being recognized for their core values
 
-        [Display(Name = "Recepient")]
+        [Display(Name = "Recipient")]
         public Guid employeeID { get; set; }
         [ForeignKey("employeeID")]
         public virtual EmployeeDetails EmployeeRecognized { get; set; }
