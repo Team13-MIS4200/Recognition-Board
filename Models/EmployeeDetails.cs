@@ -71,7 +71,7 @@ namespace Recognition_Board.Models
 
 
         // Position Details
-        [Display(Name = "Current position")]
+        [Display(Name = "Current Position")]
         public string position { get; set; }
 
         [Display(Name = "Manager")]
