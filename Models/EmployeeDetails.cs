@@ -52,6 +52,7 @@ namespace Recognition_Board.Models
             Louisville,
             Miami,
             Seattle,
+            [Display(Name ="St. Louis")]
             StLouis,
             Tampa
         }
@@ -62,10 +63,14 @@ namespace Recognition_Board.Models
         public enum Department
         {
             Accounting,
+            [Display(Name = "Business Consulting")]
             BusinessConsulting,
+            [Display(Name = "Digital Consulting")]
             DigitalConsulting,
             Finance,
+            [Display(Name = "Human Resources")]
             HumanResources,
+            [Display(Name = "Technology Services")]
             TechnologyServices
         }
 

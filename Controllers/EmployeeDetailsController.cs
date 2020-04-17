@@ -103,11 +103,12 @@ namespace Recognition_Board.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "employeeID,email,firstName,lastName,phoneNumber,officeLocation,department,position,manager")] EmployeeDetails employeeDetails)
+        public ActionResult Edit([Bind(Include = "employeeID,firstName,lastName,phoneNumber,officeLocation,department,position,manager")] EmployeeDetails employeeDetails)
         {
             if (ModelState.IsValid)
             {
                 employeeDetails.email = User.Identity.Name;
+                employeeDetails.hireDate = DateTime.Now;
                 db.Entry(employeeDetails).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
