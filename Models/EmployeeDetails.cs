@@ -19,24 +19,27 @@ namespace Recognition_Board.Models
         }
 
         // Personal Info
+        [Required(ErrorMessage = "Please include your @centricconsulting.com address.")]
         [EmailAddress]
         [Display(Name = "Employee Email")]
         public string email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please include your first name.")]
         [Display(Name = "First Name")]
         public string firstName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please include your last name.")]
         [Display(Name = "Last Name")]
         public string lastName { get; set; }
 
-        [Display(Name = "Primary Phone")]
+        [Required(ErrorMessage = "Please include your office phone number.")]
+        [Display(Name = "Office Phone")]
         [Phone]
         public string phoneNumber { get; set; }
 
 
         // location dd
+        [Required]
         [Display(Name = "Office Location")]
         public OfficeLocation officeLocation { get; set; }
         public enum OfficeLocation
@@ -58,6 +61,7 @@ namespace Recognition_Board.Models
         }
 
         // department dd
+        [Required]
         [Display(Name = "Department")]
         public Department department{ get; set; }
         public enum Department
@@ -76,12 +80,15 @@ namespace Recognition_Board.Models
 
 
         // Position Details
+        [Required(ErrorMessage = "Please include your current position title.")]
         [Display(Name = "Current Position")]
         public string position { get; set; }
 
+        [Required(ErrorMessage = "Please include your current manager.")]
         [Display(Name = "Manager")]
         public string manager { get; set; }
 
+        [Required(ErrorMessage = "Please include your initial hire date.")]
         [Display(Name = "Hire Date")]
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime hireDate { get; set; }
