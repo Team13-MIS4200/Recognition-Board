@@ -32,7 +32,7 @@ namespace Recognition_Board.Models
         [Display(Name = "Last Name")]
         public string lastName { get; set; }
 
-        [Required(ErrorMessage = "Please include your office phone number.")]
+        //[Required(ErrorMessage = "Please include your office phone number.")]
         [Display(Name = "Office Phone")]
         [Phone]
         public string phoneNumber { get; set; }
@@ -80,11 +80,11 @@ namespace Recognition_Board.Models
 
 
         // Position Details
-        [Required(ErrorMessage = "Please include your current position title.")]
+        //[Required(ErrorMessage = "Please include your current position title.")]
         [Display(Name = "Current Position")]
         public string position { get; set; }
 
-        [Required(ErrorMessage = "Please include your current manager.")]
+        //[Required(ErrorMessage = "Please include your current manager.")]
         [Display(Name = "Manager")]
         public string manager { get; set; }
 
