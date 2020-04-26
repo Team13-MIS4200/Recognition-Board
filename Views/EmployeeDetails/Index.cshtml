@@ -4,17 +4,36 @@
     ViewBag.Title = "Employee Details";
 }
 
-<br /> <br />
+<br />
+<br />
 <h2>Employee Details</h2>
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-9">
+            @using (Html.BeginForm("Index", "EmployeeDetails", FormMethod.Get))
+            {
+                <p>
+                    Search for users by first or last name:
+                    @Html.TextBox("searchString")
+                    <input type="submit" value="Search" />
+                </p>
+            }
+        </div>
+        <div class="col-md-3">
+            @*Click register above to get started!*@
+        </div>
+    </div>
+</div>
 
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.email)
+            @Html.DisplayNameFor(model => model.fullName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.fullName)
+            @Html.DisplayNameFor(model => model.email)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.phoneNumber)
@@ -22,27 +41,28 @@
         <th>
             @Html.DisplayNameFor(model => model.officeLocation)
         </th>
+        <th> Details Link</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fullName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.phoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.officeLocation)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.employeeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.employeeID }) |
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.fullName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.phoneNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.officeLocation)
+    </td>
+    <td>
+        @Html.ActionLink("Details", "Details", new { id = item.employeeID })
+    </td>
+</tr>
+    }
 
 </table>

@@ -4,7 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<br />
+<br />
+<h2>Recognition Board</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -28,30 +30,31 @@
         </th>
         <th></th>
     </tr>
-    
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.EmployeeRecognizer.fullName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.award)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.EmployeeRecognized.fullName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.description)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.recognizationDate)
-    </td>
-    <td>
-        @Html.ActionLink(" ", "Edit", new { id = item.recognitionID }, new { @class = "glyphicon glyphicon-pencil" }) |
-        @Html.ActionLink(" ", "Details", new { id = item.recognitionID }, new { @class = "glyphicon glyphicon-search" }) |
-        
-    </td>
-</tr>
-}
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeRecognizer.fullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.award)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeRecognized.fullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.recognizationDate)
+            </td>
+            <td>
+                @Html.ActionLink(" ", "Edit", new { id = item.recognitionID }, new { @class = "glyphicon glyphicon-pencil" }) |
+                @Html.ActionLink(" ", "Details", new { id = item.recognitionID }, new { @class = "glyphicon glyphicon-search" }) |
+
+            </td>
+        </tr>
+    }
 
 </table>

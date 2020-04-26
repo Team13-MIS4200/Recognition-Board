@@ -3,88 +3,103 @@
 @{
     ViewBag.Title = "Details";
 }
+<br />
+<br />
 
-<h2>Details</h2>
 
-<div>
-    <h4>EmployeeDetails</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.email)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.email)
-        </dd>
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-6">
+            <h2>@Html.DisplayFor(model => model.firstName) @Html.DisplayFor(model => model.lastName)'s Details</h2>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.email)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.firstName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.email)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.firstName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.firstName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.lastName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.firstName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.lastName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.lastName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.phoneNumber)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.lastName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.phoneNumber)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.phoneNumber)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.officeLocation)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.phoneNumber)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.officeLocation)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.officeLocation)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.department)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.officeLocation)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.department)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.department)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.position)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.department)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.position)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.position)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.manager)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.position)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.manager)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.manager)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.hireDate)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.manager)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.hireDate)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.hireDate)
+                </dt>
 
-    </dl>
+                <dd>
+                    @Html.DisplayFor(model => model.hireDate)
+                </dd>
+
+            </dl>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.employeeID }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+        </div>
+        <div class="col-md-6">
+            <h2>Previous Recognitions</h2>
+
+
+
+
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.employeeID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
+

@@ -17,10 +17,20 @@ namespace Recognition_Board.Controllers
         private RecognitionBoardContext db = new RecognitionBoardContext();
 
         // GET: EmployeeDetails
-        public ActionResult Index()
-        {
-            return View(db.Employees.ToList());
-        }
+
+        public ActionResult Index(string searchString)
+         {
+                var testusers = from u in db.Employees select u;
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    testusers = testusers.Where(u =>
+                    u.lastName.Contains(searchString)
+                    || u.firstName.Contains(searchString));
+                    // if here, users were found so view them
+                    return View(testusers.ToList());
+                }
+             return View(db.Employees.ToList());
+         }
 
         // GET: EmployeeDetails/Details/5
         public ActionResult Details(Guid? id)
