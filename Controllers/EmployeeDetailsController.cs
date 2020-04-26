@@ -50,8 +50,8 @@ namespace Recognition_Board.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "employeeID,firstName,lastName,phoneNumber,officeLocation,department,position,manager,hireDate")] EmployeeDetails employeeDetails)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 //employeeDetails.employeeID = Guid.NewGuid();
                 Guid memberID; // create a variable to hold the guid
                 Guid.TryParse(User.Identity.GetUserId(), out memberID);
@@ -68,9 +68,9 @@ namespace Recognition_Board.Controllers
                 {
                     return View("DuplicateUser");
                 }
-            }
+            //}
 
-            return View(employeeDetails);
+            //return View(employeeDetails);
         }
 
         // GET: EmployeeDetails/Edit/5
@@ -105,15 +105,15 @@ namespace Recognition_Board.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "employeeID,firstName,lastName,phoneNumber,officeLocation,department,position,manager")] EmployeeDetails employeeDetails)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 employeeDetails.email = User.Identity.Name;
                 employeeDetails.hireDate = DateTime.Now;
                 db.Entry(employeeDetails).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
-            return View(employeeDetails);
+            //}
+            //return View(employeeDetails);
         }
 
         // GET: EmployeeDetails/Delete/5
