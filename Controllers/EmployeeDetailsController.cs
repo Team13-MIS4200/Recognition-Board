@@ -32,9 +32,36 @@ namespace Recognition_Board.Controllers
              return View(db.Employees.ToList());
          }
 
+        
+
         // GET: EmployeeDetails/Details/5
         public ActionResult Details(Guid? id)
         {
+            
+            var rec = db.Recognitions.Where(r => r.employeeID == id).OrderByDescending(a => a.recognizationDate).Take(10);
+            var recList = rec.ToList();
+            ViewBag.recList = recList;
+
+            var totalCnt = recList.Count(); //counts all the recognitions for that person
+            var rec1Cnt = recList.Where(r => r.award == Recognitions.CoreValue.Excellence).Count();
+            var rec2Cnt = recList.Count(r => r.award == Recognitions.CoreValue.Culture);
+            var rec3Cnt = recList.Count(r => r.award == Recognitions.CoreValue.Innovate);
+            var rec4Cnt = recList.Count(r => r.award == Recognitions.CoreValue.Lifestyle);
+            var rec5Cnt = recList.Count(r => r.award == Recognitions.CoreValue.Passion);
+            var rec6Cnt = recList.Count(r => r.award == Recognitions.CoreValue.Stewardship);
+            var rec7Cnt = recList.Count(r => r.award == Recognitions.CoreValue.Integrity);
+            // copy the values into the ViewBag
+            ViewBag.total = totalCnt;
+            ViewBag.Excellence = rec1Cnt;
+            ViewBag.Culture = rec2Cnt;
+            ViewBag.Innovate = rec3Cnt;
+            ViewBag.Lifestyle = rec4Cnt;
+            ViewBag.Passion = rec5Cnt;
+            ViewBag.Stewardship = rec6Cnt;
+            ViewBag.Integrity = rec6Cnt;
+
+
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

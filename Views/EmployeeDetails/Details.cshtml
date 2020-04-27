@@ -1,16 +1,13 @@
 ﻿@model Recognition_Board.Models.EmployeeDetails
-
 @{
     ViewBag.Title = "Details";
 }
 <br />
 <br />
-
-
-
 <div class="form-horizontal">
     <div class="form-group">
         <div class="col-md-6">
+
             <h2>@Html.DisplayFor(model => model.firstName) @Html.DisplayFor(model => model.lastName)'s Details</h2>
             <dl class="dl-horizontal">
                 <dt>
@@ -92,8 +89,25 @@
             </p>
         </div>
         <div class="col-md-6">
-            <h2>Previous Recognitions</h2>
+            @{
+                var total = ViewBag.total;
+                var excellence = ViewBag.Excellence;
+                var culture = ViewBag.Culture;
+                var integrity = ViewBag.Integrity;
+                var innovate = ViewBag.Innovate;
+                var lifestyle = ViewBag.Lifestyle;
+                var passion = ViewBag.Passion;
+                var stewardship = ViewBag.Stewardship;
 
+                <h2>Total recognitions received = @total</h2>
+                <h4>Excellence awards = @excellence</h4>
+                <h4>Culture awards = @culture</h4>
+                <h4>Integrity awards = @integrity</h4>
+                <h4>Innovation awards = @innovate</h4>
+                <h4>Lifestyle awards = @lifestyle</h4>
+                <h4>Passion awards = @passion</h4>
+                <h4>Stewardship awards = @stewardship</h4>
+            }
 
 
 
